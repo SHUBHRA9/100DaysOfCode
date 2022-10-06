@@ -1,0 +1,23 @@
+//Day 8
+//Problem : Equilibrium Point
+//Question link : https://practice.geeksforgeeks.org/problems/equilibrium-point-1587115620/1?page=1&curated[]=1&sortBy=submissions
+//Coding :
+
+class Solution {
+
+    public static int equilibriumPoint(long arr[], int n) {
+            long sum1=0;                
+            long sum2=0;
+            for(int i=0;i<n;i++){
+                sum1=sum1+arr[i];           //storing value in sum1 after adding sum1+arr[i]
+            }
+            for(int i=0;i<n;i++){
+                sum1=sum1-arr[i];
+                if(sum1==sum2){             //checking if sum1=sum2
+                    return i+1;               //if the above condition satisfies return 1
+                }
+                    sum2=sum2+arr[i];       //else store value of sum2+arr[i] insum2
+            }
+            return -1;
+    }
+}

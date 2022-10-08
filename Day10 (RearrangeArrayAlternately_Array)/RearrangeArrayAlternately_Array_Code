@@ -1,0 +1,29 @@
+//Problem :  Rearrange Array Alternately
+//Question Link :  https://practice.geeksforgeeks.org/problems/-rearrange-array-alternately-1587115620/1?page=2&curated[]=1&sortBy=submissions
+//Coding :
+
+class Solution{
+    
+    //Function to rearrange  the array elements alternately.
+    public static void rearrange(long arr[], int n){        // n: size of array
+       long[] temp = new long[n];                           // temp: input array
+        int j=0,c=1,i;
+        for(i=0;i<n;i++)
+        {
+           if(i%2==0)
+            {
+                temp[i] = arr[n-c];
+                c++;
+            }
+            else
+            {
+                temp[i] = arr[j];
+                j++;
+            }
+        }
+       for(i=0;i<n;i++)
+        {
+            arr[i] = temp[i];
+        }
+    }    
+}

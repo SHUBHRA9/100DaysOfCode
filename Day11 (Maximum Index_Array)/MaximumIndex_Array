@@ -1,0 +1,28 @@
+//Day 11
+//Problem : Maximum 
+//Question Link : https://practice.geeksforgeeks.org/problems/maximum-index-1587115620/1
+//Coding :
+
+class Solution{
+    static int maxIndexDiff(int A[], int N) {           // A[]: input array
+        int i,j;                                        // N: size of array
+        int max=-1;                                     //intialising max
+        for(i=0;i<N;i++){
+            j=N-1;
+            int count=0;
+            while(i<=j){								//checks whether i is less than and equals to j or not                               
+                if (A[i]<=A[j]){                        //checks whether A[i] is less than and equals to A[j] or not   
+                    count=j-i;
+                break;
+                } 
+                j--;
+            }
+            max=Math.max(max,count);                    //Using Math.max() function to find maximum index value
+        }
+        
+       return max;
+    }
+}
+
+
+

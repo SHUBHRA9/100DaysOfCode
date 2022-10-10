@@ -1,0 +1,32 @@
+//Day 12
+//Problem: Median of Two Sorted Arrays
+//Question Link: https://leetcode.com/problems/median-of-two-sorted-arrays/
+//Coding:
+
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int i = 0;
+        int n3;
+        double median=0.0;
+        int n1 = nums1.length;
+        int n2= nums2.length;
+        int[] nums3=new int[n1+n2];
+     for(i =0;i<n1;i++){             
+         nums3[i] = nums1[i];		// traverse the array nums1 and insert its element in nums3
+     }  
+        for(i =0;i<n2;i++){              
+            nums3[n1+i] = nums2[i];		// traverse the array nums2 and insert its element in nums3
+        }
+      Arrays.sort(nums3);		// sort the whole array nums3
+        n3=n1+n2;	
+        if(n3%2==0)            
+        {
+            median=(nums3[(n3/2)-1]+nums3[((n3/2)+1)-1])/2.0;  
+        }                         
+        else
+        {
+            median=nums3[((n3+1)/2)-1];     	//calculate median if there are odd number of elements
+        }
+        return median;			//returns the median from the merged array
+    }
+}

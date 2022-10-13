@@ -1,0 +1,22 @@
+//Day 13
+//Problem: K-th element of two sorted Arrays
+//Question Link: https://practice.geeksforgeeks.org/problems/k-th-element-of-two-sorted-array1317/1?page=2&category[]=Arrays&curated[]=1&sortBy=submissions
+//Coding:
+
+class Solution {
+    public long kthElement( int arr1[], int arr2[], int n, int m, int k) {
+        int a=0;
+        int arr[]=new int[m+n];
+        for(int i=0;i<n;i++){
+            arr[i]=arr1[i];
+        }
+        for(int j=n;j<n+m;j++){
+            arr[j]=arr2[a];
+            a++;
+        }
+        Arrays.sort(arr);
+        return arr[k-1];
+
+    }
+
+}

@@ -1,0 +1,25 @@
+//Day 20
+//Problem : Check if string is rotated by two places
+//Question Link : https://practice.geeksforgeeks.org/problems/check-if-string-is-rotated-by-two-places-1587115620/1?page=1&category[]=Strings&sortBy=submissions
+//Coding :
+
+class Solution
+{
+    public static boolean isRotated(String str1, String str2)
+    {
+       String str="";
+
+        str=str1.substring(2)+str1.substring(0,2);
+
+        String str3="";
+
+        str3=str1.substring(str1.length()-2)+str1.substring(0,str1.length()-2);
+
+        if(str.equals(str2)|| str3.equals(str2))
+
+            return true;
+
+        return false; 
+    }
+    
+}

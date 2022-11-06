@@ -1,0 +1,24 @@
+Queston : Longest Prefix Suffix
+
+Given a string of characters, find the length of the longest proper prefix which is also a proper suffix.
+Prefix and suffix can be overlapping but they should not be equal to the entire string.
+
+Test Case 1:
+Input: s = "abab"
+Output: 2
+Explanation: "ab" is the longest proper prefix and suffix. 
+
+Test Case 2:
+Input: s = "aaaa"
+Output: 3
+Explanation: "aaa" is the longest proper prefix and suffix. 
+
+Test Case 3:
+Input: s = "abc"
+Output: 0
+Explanation: Ther is not any longest prefix or suffix. 
+
+The task is to complete the function lps(), which takes a string as input and returns an integer.
+
+Expected Time Complexity: O(|s|)
+Expected Auxiliary Space: O(|s|)

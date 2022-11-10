@@ -1,0 +1,25 @@
+//Day 30
+//Problem : Possible Words From Phone Digits
+//Question Link : https://practice.geeksforgeeks.org/problems/possible-words-from-phone-digits-1587115620/1?page=3&category[]=Strings&sortBy=submissions
+//Coding :
+
+class Solution
+{
+    static ArrayList <String> possibleWords(int a[], int N)
+    {
+        String words[] = {"0","0", "abc", "def","ghi","jkl", "mno","pqrs", "tuv", "wxyz"};
+        ArrayList<String> res = new ArrayList<>();
+        fun(a,words,res,0,"");
+        return res;
+    }
+    static void fun(int a[],String words[],ArrayList<String> res, int digit, String str)
+    {
+        if(digit == a.length){
+            res.add(str);
+            return;
+        }
+        String keyWord  = words[a[digit]];
+        for(int i = 0;i < keyWord.length();i++)
+            fun(a,words,res,digit+1,str + keyWord.charAt(i));
+    }
+}

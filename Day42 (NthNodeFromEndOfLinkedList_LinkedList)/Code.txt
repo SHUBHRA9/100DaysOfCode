@@ -1,0 +1,29 @@
+//Day 42
+//Problem : Nth node from end of linked list
+//Question Link : https://practice.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/1?page=1&category[]=Linked%20List&sortBy=submissions
+//Coding :
+
+class GfG
+{
+    int getNthFromLast(Node head, int n)
+    {
+     int size = 0;
+     Node temp = head;
+     while(temp != null) {
+         temp = temp.next;
+         size++;
+     }
+     if(size == n) {
+         return head.data;
+     }
+     if(n > size) {
+         return -1;
+     }
+     Node curr = head;
+     for(int i = 0; i < size - n; i++) {
+         curr = curr.next;
+    }   
+     return curr.data;
+    }
+
+}

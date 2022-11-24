@@ -1,0 +1,38 @@
+//Day 43
+//Problem : Finding middle element in a linked list
+//Question Link : https://practice.geeksforgeeks.org/problems/finding-middle-element-in-a-linked-list/1?page=1&category[]=Linked%20List&sortBy=submissions
+//Coding :
+
+class Solution
+{
+    int getMiddle(Node head)
+    {
+         int count =1;
+
+         Node curr = head;
+
+         Node prev= head;
+
+         while(curr.next != null){
+
+             curr = curr.next;
+
+             count++;
+
+         }
+
+         int length = count/2+1;
+
+         int l=1;
+
+         while(l<length){
+
+             prev = prev.next;
+
+             l++;
+
+         }
+
+         return prev.data;
+    }
+}

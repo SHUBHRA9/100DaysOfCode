@@ -1,0 +1,33 @@
+//Day 55
+//Problem : Remove Nth Node From End of List
+//Question Link : https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+//Coding :
+
+class Solution {
+    
+    public ListNode removeNthFromEnd(ListNode head, int n) 
+    {
+        if (recurseNull(head, n) == n)
+        {
+            head = head.next;
+        }
+        return head;
+    }
+    
+    public int recurseNull(ListNode curr, int n)
+    {
+        ListNode current = curr;
+        if (current == null)
+        {
+            return 0;
+        }
+        
+        int recurseReturn = recurseNull(current.next, n);
+        if (recurseReturn == n)
+        {
+            current.next = current.next.next;
+        }
+        return ++recurseReturn;
+    }
+    
+}

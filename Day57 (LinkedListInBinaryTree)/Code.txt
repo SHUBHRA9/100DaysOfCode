@@ -1,0 +1,31 @@
+//Day 57
+//Problem : Linked List in Binary Tree
+//Question Link : https://leetcode.com/problems/linked-list-in-binary-tree/description/
+//Coding :
+
+class Solution {
+    public boolean isSubPath(ListNode head, TreeNode root) {
+        return dfs(head, root);
+    }
+    
+    public boolean dfs(ListNode l, TreeNode r){
+        if(r==null)
+            return false;
+        if(r.val == l.val){
+            if(check(l,r))
+                return true;
+        }
+        return dfs(l, r.left) || dfs(l, r.right);
+    }
+    
+    public boolean check(ListNode l, TreeNode r){
+        if(l==null)
+            return true;
+        if(r==null)
+            return false;
+        if(r.val == l.val){
+            return check(l.next, r.left) || check(l.next, r.right);
+        }
+        return false;
+    }
+}

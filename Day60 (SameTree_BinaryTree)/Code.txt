@@ -1,0 +1,26 @@
+//Day 60
+//Problem : Same Tree
+//Question Link : https://leetcode.com/problems/same-tree/description/
+//Coding :
+
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        Stack<TreeNode> pstack = new Stack<>();
+        Stack<TreeNode> qstack = new Stack<>();
+        pstack.push(p);
+        qstack.push(q);
+        while(!pstack.isEmpty() && !qstack.isEmpty()){
+            TreeNode t1 = pstack.pop();
+            TreeNode t2 = qstack.pop();
+            if(t1 == null && t2 == null) continue;
+            if(t1 == null || t2 == null) return false;
+            if(t1.val != t2.val) return false;
+            pstack.push(t1.left);
+            pstack.push(t1.right);
+            qstack.push(t2.left);
+            qstack.push(t2.right);
+        }
+        if(pstack.isEmpty() && qstack.isEmpty()) return true;
+        else return false;
+    }
+}

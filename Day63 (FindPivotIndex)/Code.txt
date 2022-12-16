@@ -1,0 +1,17 @@
+//Day 63
+//Problem : Find Pivot Index
+//Question Link : https://leetcode.com/problems/find-pivot-index/description/
+//Coding :
+
+class Solution {
+    public int pivotIndex(int[] nums) {
+        for(int r = IntStream.of(nums).sum(), l = 0, i = 0; i < nums.length; i ++){
+            r -= nums[i];
+            if(l == r){
+                return i;
+            }
+            l += nums[i];
+        }
+        return -1;
+    }
+}

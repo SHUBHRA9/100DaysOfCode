@@ -1,0 +1,33 @@
+//Day 65
+//Problem : Daily Temperatures
+//Question Link : https://leetcode.com/problems/daily-temperatures/description/
+//Coding :
+
+class Solution {
+    public int[] dailyTemperatures(int[] nums) {
+        if (nums == null || nums.length < 1) {
+            return new int[0];
+        }
+        
+        int n = nums.length;
+        int[] result = new int[n];
+        
+        for(int i = n-2; i >= 0; i --) {
+            int j = i + 1;
+            while(true) {
+                if(nums[j] > nums[i]) {
+                    result[i] = j - i;
+                    break;
+                }
+                
+                if (result[j] == 0) {
+                    break;
+                }
+                
+                j += result[j];
+            }
+        }
+        
+        return result;
+    }
+}

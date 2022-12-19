@@ -1,0 +1,11 @@
+//Day 66
+//Problem : Majority Element
+//Question Link : https://leetcode.com/problems/majority-element/description/
+//Coding :
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        return nums[(nums.length-1)/2];
+    }
+}

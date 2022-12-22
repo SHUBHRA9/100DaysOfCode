@@ -1,0 +1,24 @@
+//Day 69
+//Problem : Root Equals Sum of Children
+//Question Link : https://leetcode.com/problems/root-equals-sum-of-children/description/
+//Coding :
+
+class Solution {
+    public boolean checkTree(TreeNode root) {
+         if(root.left == null){
+            return true;
+        }
+        if(root.right==null){
+            return true;
+        }
+        checkTree(root.left);
+        checkTree(root.right);
+        if(root.val == root.left.val + root.right.val){
+            return true;
+            
+        }
+        else{
+            return false;
+        }
+    }
+}

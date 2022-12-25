@@ -1,0 +1,41 @@
+//Day 72
+//Problem : Minimum Absolute Difference in BST
+//Question Link : https://leetcode.com/problems/minimum-absolute-difference-in-bst/description/
+//Coding :
+
+class Solution {
+    public int getMinimumDifference(TreeNode root) {
+        Stack<TreeNode> st = new Stack<TreeNode>();
+        
+        TreeNode cur = root;
+        while(cur != null){
+            st.push(cur);
+            cur = cur.left;
+        }
+        
+        int min = Integer.MAX_VALUE;
+        boolean notfirst = false;
+        int pre = 0; 
+        while(!st.isEmpty()){
+            cur = st.pop();
+            TreeNode next = cur.right;
+            while(next != null){
+                st.push(next);
+                next = next.left;
+            }
+            
+            // Update min 
+            if(notfirst){
+                if(cur.val - pre < min)
+                    min = cur.val - pre;
+            }
+            else
+                notfirst = true;
+            
+            pre = cur.val;
+        }
+        
+        return min;
+    }
+    
+}

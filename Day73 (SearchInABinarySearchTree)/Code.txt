@@ -1,0 +1,18 @@
+//Day 73
+//Problem : Search in a Binary Search Tree
+//Question Link : https://leetcode.com/problems/search-in-a-binary-search-tree/description/
+//Coding :
+
+class Solution {
+    public TreeNode searchBST(TreeNode root, int target) {
+        TreeNode x = root;
+        while (x != null && x.val != target) {
+            if (target < x.val) {
+                x = x.left;
+            } else {
+                x = x.right;
+            }
+        }
+        return x;
+    }
+}

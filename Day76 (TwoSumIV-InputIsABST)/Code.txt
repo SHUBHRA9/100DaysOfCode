@@ -1,0 +1,19 @@
+//Day 76
+//Problem : Two Sum IV - Input is a BST
+//Question Link : https://leetcode.com/problems/two-sum-iv-input-is-a-bst/description/
+//Coding :
+
+public class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        Set<Integer> viewed = new HashSet<Integer>();
+        return search(root, k, viewed);
+    }
+    
+    private boolean search(TreeNode root, int k, Set<Integer> viewed)
+    {
+        if(root == null) return false;
+        if(viewed.contains(k - root.val)) return true;
+        viewed.add(root.val);
+        return search(root.left, k, viewed) || search(root.right, k , viewed);
+    }
+}
